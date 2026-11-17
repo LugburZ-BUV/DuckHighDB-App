@@ -13,9 +13,9 @@ public partial class Class
 
     public int? MentorId { get; set; }
 
-    public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
-
     public virtual Employee? Mentor { get; set; }
 
     public virtual ICollection<SubjectAssignment> SubjectAssignments { get; set; } = new List<SubjectAssignment>();
+
+    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 }

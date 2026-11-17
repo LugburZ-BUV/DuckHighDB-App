@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DuckHighDB_App.UI.MenuOptions
 {
-    internal class AllStudentsForClass
+    internal class AllStudentsByClass
     {
     }
 }
