@@ -7,10 +7,7 @@ namespace DuckHighDB_App.UI
 {
     internal class MainMenu(IMenuOptions[] menuOptions, ConsoleInputValidation consoleInput)
     {
-        /// <summary>
-        /// Empty line, replaces \n.
-        /// </summary>
-        private readonly string _nl = Environment.NewLine;
+
 
 
         /// <summary>
@@ -20,21 +17,21 @@ namespace DuckHighDB_App.UI
         {
             Console.WriteLine(CenterTitle("Huvudmeny"));
 
-            Console.WriteLine($"{_nl}Välj ett av alternativen nedan:{_nl}");
+            Console.WriteLine($"{consoleInput.N1}Välj ett av alternativen nedan:{consoleInput.N1}");
 
             for (int index = 0; index < menuOptions.Length; index++)
             {
                 Console.WriteLine($"{index + 1}. {menuOptions[index].Title}");
             }
 
-            Console.WriteLine($"{_nl}{menuOptions.Length + 1}. Avsluta{_nl}");
+            Console.WriteLine($"{consoleInput.N1}{menuOptions.Length + 1}. Avsluta{consoleInput.N1}");
             int selectedMainMenu = consoleInput.ReadInteger("Ange ditt val: ", 1, menuOptions.Length + 1, "Ogiltigt val. Välj ett av alternativen i menyn.");
 
             if (selectedMainMenu == menuOptions.Length + 1)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{_nl}Programmet avslutas...{_nl}");
+                Console.WriteLine($"{consoleInput.N1}Programmet avslutas...{consoleInput.N1}");
                 Console.ResetColor();
                 return false;
             }
@@ -58,7 +55,7 @@ namespace DuckHighDB_App.UI
         public string CenterTitle(string title)
         {
             int width = Console.WindowWidth;
-            string nl = Environment.NewLine;
+            string nl = consoleInput.N1;
             string border = new string('=', width);
 
             if (title.Length >= width)

@@ -14,7 +14,7 @@ namespace DuckHighDB_App.UI
         /// <summary>
         /// Default message to display when waiting for the user to press Enter.
         /// </summary>
-        private const string DefaultWaitMessage = "Tryck på Enter för att gå vidare.";
+        private const string DefaultWaitMessage = "Tryck på Enter för att återgå till huvudmenyn.";
 
         /// <summary> 
         /// Asks until the user enters an integer between min and max.
@@ -98,6 +98,28 @@ namespace DuckHighDB_App.UI
         }
 
         /// <summary>
+        /// Asks until the user enters one of the two allowed characters (case-insensitive).
+        /// </summary>
+        /// <returns>The chosen character in uppercase.</returns>
+        public char ReadChar(string question, char char1 = 'j', char char2 = 'n')
+        {
+            char upper1 = char.ToUpperInvariant(char1);
+            char upper2 = char.ToUpperInvariant(char2);
+
+            Console.Write(question);
+            string input = ReadLineOrThrow().Trim().ToUpperInvariant();
+
+            while (input.Length != 1 || (input[0] != upper1 && input[0] != upper2))
+            {
+                Console.WriteLine($"Ogiltigt val. Ange '{upper1}' eller '{upper2}'.");
+                Console.Write(question);
+                input = ReadLineOrThrow().Trim().ToUpperInvariant();
+            }
+
+            return input[0];
+        }
+
+        /// <summary>
         /// Waits for the user to press Enter before continuing.
         /// </summary>
         /// <param name="message">The message to display.</param>
@@ -153,5 +175,7 @@ namespace DuckHighDB_App.UI
 
             return input;
         }
+
+        public readonly string N1 = Environment.NewLine;
     }
 }
