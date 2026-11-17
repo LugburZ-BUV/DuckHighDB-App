@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DuckHighDB_App.UI.MenuOptions
 {
-    internal class AddEmploye
+    internal class AddEmployee
     {
     }
 }
