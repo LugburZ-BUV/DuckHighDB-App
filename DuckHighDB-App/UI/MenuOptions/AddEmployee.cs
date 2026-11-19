@@ -64,8 +64,8 @@ namespace DuckHighDB_App.UI.MenuOptions
 
 
             Console.WriteLine();
-            char choice = consoleInput.ReadChar("Lägg till anställd? (J/N): ");
-            if (choice == 'J' || choice == 'j')
+            char choice = consoleInput.ReadChar("Lägg till anställd? (Y/N): ");
+            if (choice == 'Y' || choice == 'y')
             {
                 dbContext.Employees.Add(newEmployee);
                 dbContext.SaveChanges();

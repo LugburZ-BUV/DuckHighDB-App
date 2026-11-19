@@ -14,7 +14,7 @@ namespace DuckHighDB_App
 
             IMenuOptions[] options = [
             new AddEmployee("Lägg till ny anställd", consoleInputValidation, dbContext),
-            //new AllStudents("Se alla elever", consoleInputValidation, dbContext),
+            new AllStudents("Se alla elever", consoleInputValidation, dbContext),
             //new AllStudentsByClass("Alla elever efter klass", consoleInputValidation, dbContext),
             ];
 

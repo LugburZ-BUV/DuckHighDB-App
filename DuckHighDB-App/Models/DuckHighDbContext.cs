@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DuckHighDB_App.Models;
 
@@ -38,12 +38,14 @@ public partial class DuckHighDbContext : DbContext
         {
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            var connectionString = config.GetConnectionString("DefaultConnection");
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Class>(entity =>
