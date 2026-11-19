@@ -15,16 +15,17 @@ namespace DuckHighDB_App.UI
         /// </summary>
         public bool Show()
         {
+            Console.Clear();
             Console.WriteLine(CenterTitle("Huvudmeny"));
 
             Console.WriteLine($"{consoleInput.N1}Välj ett av alternativen nedan:{consoleInput.N1}");
 
             for (int index = 0; index < menuOptions.Length; index++)
             {
-                Console.WriteLine($"{index + 1}. {menuOptions[index].Title}");
+                Console.WriteLine($"[{index + 1}] > {menuOptions[index].Title}");
             }
 
-            Console.WriteLine($"{consoleInput.N1}{menuOptions.Length + 1}. Avsluta{consoleInput.N1}");
+            Console.WriteLine($"{consoleInput.N1}[{menuOptions.Length + 1}] > Avsluta{consoleInput.N1}");
             int selectedMainMenu = consoleInput.ReadInteger("Ange ditt val: ", 1, menuOptions.Length + 1, "Ogiltigt val. Välj ett av alternativen i menyn.");
 
             if (selectedMainMenu == menuOptions.Length + 1)
@@ -52,6 +53,10 @@ namespace DuckHighDB_App.UI
             return true;
         }
 
+        /// <summary>
+        /// Centers the provided string and adds a border across the width of the screen below and above.
+        /// </summary>
+        /// <returns>The border + Title as a string.</returns>
         public string CenterTitle(string title)
         {
             int width = Console.WindowWidth;

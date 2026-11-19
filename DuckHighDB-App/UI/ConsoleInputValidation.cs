@@ -101,7 +101,7 @@ namespace DuckHighDB_App.UI
         /// Asks until the user enters one of the two allowed characters (case-insensitive).
         /// </summary>
         /// <returns>The chosen character in uppercase.</returns>
-        public char ReadChar(string question, char char1 = 'j', char char2 = 'n')
+        public char ReadChar(string question, char char1 = 'y', char char2 = 'n')
         {
             char upper1 = char.ToUpperInvariant(char1);
             char upper2 = char.ToUpperInvariant(char2);
