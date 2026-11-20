@@ -6,7 +6,7 @@ using System.Text;
 namespace DuckHighDB_App.UI.MenuOptions
 {
 
-    internal class AllStudentsByClass(string title, ConsoleInputValidation consoleInput, DuckHighDbContext dbContext) : IMenuOptions
+    internal class AllStudentsByClass(string title, ConsoleInputValidation consoleInput, DuckHighDbContext dbContext, StudentDisplayHelper studentHelper) : IMenuOptions
     {
         public string Title => title;
 

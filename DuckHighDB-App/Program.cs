@@ -12,10 +12,12 @@ namespace DuckHighDB_App
 
             DuckHighDbContext dbContext = new();
 
+            StudentDisplayHelper studentDisplayHelper = new(consoleInput);
+
             IMenuOptions[] options = [
             new AddEmployee("Lägg till ny anställd", consoleInput, dbContext),
-            new AllStudents("Se alla elever", consoleInput, dbContext),
-            new AllStudentsByClass("Se alla elever per klass", consoleInput, dbContext),
+            new AllStudents("Se alla elever", consoleInput, dbContext, studentDisplayHelper),
+            new AllStudentsByClass("Se alla elever per klass", consoleInput, dbContext, studentDisplayHelper),
             ];
 
             MainMenu mainMenu = new(options, consoleInput);
