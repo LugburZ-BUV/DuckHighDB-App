@@ -35,7 +35,7 @@ namespace DuckHighDB_App.UI.MenuOptions
                 Console.WriteLine($"{p.PositionId}. {p.Name}");
             }
             int position = consoleInput.ReadInteger("Ange befattning: ", 1, 
-                positions.Count(), 
+                positions.Count, 
                 "Ogiltigt val. Ange ett giltigt ID för befattningen.");
 
             Console.WriteLine("Tillgängliga avdelningar:");
@@ -44,7 +44,7 @@ namespace DuckHighDB_App.UI.MenuOptions
                 Console.WriteLine($"{d.DepartmentId}. {d.Name}");
             }
             int department = consoleInput.ReadInteger("Ange avdelning: ", 1, 
-                Departments.Count(), 
+                Departments.Count, 
                 "Ogiltigt val. Ange ett giltigt ID för avdelningen.");
 
             var newEmployee = new Employee

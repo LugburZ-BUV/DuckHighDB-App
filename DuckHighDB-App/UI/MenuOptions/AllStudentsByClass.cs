@@ -5,8 +5,15 @@ using System.Text;
 
 namespace DuckHighDB_App.UI.MenuOptions
 {
-    internal class AllStudentsByClass
+
+    internal class AllStudentsByClass(string title, ConsoleInputValidation consoleInput, DuckHighDbContext dbContext) : IMenuOptions
     {
+        public string Title => title;
+
+        public void Execute()
+        {
+
+        }
     }
 
 
