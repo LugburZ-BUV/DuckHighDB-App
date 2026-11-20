@@ -166,7 +166,7 @@ namespace DuckHighDB_App.UI
             Console.Write(question);
             string input = ReadLineOrThrow().Trim();
 
-            while (!Regex.IsMatch(input, @"^\d{8}-\d{4}$"))
+            while (!Regex.IsMatch(input, @"^[1-2]\d{3}[0-1]\d[0-3]\d-\d{4}$"))
             {
                 Console.WriteLine("Ogiltigt personnummer. Ange formatet ÅÅÅÅMMDD-XXXX (13 tecken).");
                 Console.Write(question);

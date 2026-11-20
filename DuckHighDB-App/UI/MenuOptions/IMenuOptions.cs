@@ -12,7 +12,7 @@ namespace DuckHighDB_App.UI.MenuOptions
         string Title { get; }
 
         /// <summary>
-        /// Executes the menu option for the given user.
+        /// Executes the menu option.
         /// </summary>
         void Execute();
     }

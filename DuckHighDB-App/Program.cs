@@ -6,19 +6,22 @@ namespace DuckHighDB_App
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            ConsoleInputValidation consoleInputValidation = new ConsoleInputValidation();
+            ConsoleInputValidation consoleInput = new ();
 
-            var dbContext = new DuckHighDbContext();
+            DuckHighDbContext dbContext = new();
+
+            StudentDisplayHelper studentDisplayHelper = new(consoleInput);
 
             IMenuOptions[] options = [
-            new AddEmployee("Lägg till ny anställd", consoleInputValidation, dbContext),
-            new AllStudents("Se alla elever", consoleInputValidation, dbContext),
-            //new AllStudentsByClass("Alla elever efter klass", consoleInputValidation, dbContext),
+            new AddEmployee("Lägg till ny anställd", consoleInput, dbContext),
+            new AllStudents("Se alla elever", dbContext, studentDisplayHelper),
+            new AllStudentsByClass("Se alla elever per klass", consoleInput, dbContext, studentDisplayHelper),
             ];
 
-            MainMenu mainMenu = new MainMenu(options, consoleInputValidation);
+            MainMenu mainMenu = new(options, consoleInput);
+
             while (mainMenu.Show());
         }
     }

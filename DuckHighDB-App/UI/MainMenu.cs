@@ -8,10 +8,8 @@ namespace DuckHighDB_App.UI
     internal class MainMenu(IMenuOptions[] menuOptions, ConsoleInputValidation consoleInput)
     {
 
-
-
         /// <summary>
-        /// Displays the main menu for the user.
+        /// Displays the main menu.
         /// </summary>
         public bool Show()
         {
@@ -61,7 +59,7 @@ namespace DuckHighDB_App.UI
         {
             int width = Console.WindowWidth;
             string nl = consoleInput.N1;
-            string border = new string('=', width);
+            string border = new('=', width);
 
             if (title.Length >= width)
             {
