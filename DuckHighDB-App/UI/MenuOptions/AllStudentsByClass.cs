@@ -41,3 +41,4 @@ namespace DuckHighDB_App.UI.MenuOptions
             studentHelper.SortAndDisplay(studentsInClass);
         }
     }
+}
