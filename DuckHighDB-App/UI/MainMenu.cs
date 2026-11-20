@@ -61,7 +61,7 @@ namespace DuckHighDB_App.UI
         {
             int width = Console.WindowWidth;
             string nl = consoleInput.N1;
-            string border = new string('=', width);
+            string border = new('=', width);
 
             if (title.Length >= width)
             {
