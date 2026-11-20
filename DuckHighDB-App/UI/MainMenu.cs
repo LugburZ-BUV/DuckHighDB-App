@@ -8,10 +8,8 @@ namespace DuckHighDB_App.UI
     internal class MainMenu(IMenuOptions[] menuOptions, ConsoleInputValidation consoleInput)
     {
 
-
-
         /// <summary>
-        /// Displays the main menu for the user.
+        /// Displays the main menu.
         /// </summary>
         public bool Show()
         {
